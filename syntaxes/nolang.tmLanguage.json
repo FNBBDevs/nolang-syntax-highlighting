@@ -35,7 +35,7 @@
   "repository": {
     "keywords": {
       "patterns": [
-        { "match": "\\b(if|else|for|while)\\b", "name": "keyword.control" }
+        { "match": "\\b(if|else|elif|for|while)\\b", "name": "keyword.control" }
       ]
     },
     "comments": {
