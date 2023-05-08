@@ -1,0 +1,45 @@
+{
+	"name": "nolang",
+	"displayName": "Nolang",
+	"publisher": "FNBBDevs",
+	"description": "Nolang Programming Language",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.78.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "nolang",
+				"aliases": [
+					"nolang",
+					"nolang"
+				],
+				"extensions": [
+					".nl"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "nolang",
+				"scopeName": "source.nolang",
+				"path": "./syntaxes/nolang.tmLanguage.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "393fd98c-6a95-42b4-a5ec-821c64f67e58",
+		"publisherId": "7354dfaf-2aa5-4fdf-985f-4e1197a75936",
+		"publisherDisplayName": "FNBBDevs",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1683503399141,
+		"preRelease": false
+	}
+}

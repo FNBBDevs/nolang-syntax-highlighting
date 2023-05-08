@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.nolang",
+  "fileTypes": [".nl"],
+  "name": "Nolang Programming Language",
+  "patterns": [
+    { "match": "#.*$", "name": "comment.line.number-sign" },
+    { "begin": "'", "end": "'", "name": "string.quoted.single" },
+    { "begin": "\"", "end": "\"", "name": "string.quoted.double" }
+  ]
+}
