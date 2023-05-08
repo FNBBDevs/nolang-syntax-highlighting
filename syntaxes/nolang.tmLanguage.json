@@ -29,7 +29,16 @@
       "include": "#paren-expression"
     },
     {
-      "include": "#strings"
+      "begin": "\"", "end": "\"", "patterns": [
+        { "include": "#escape-char" },
+        { "include": "#word"}
+      ]
+    },
+    {
+      "begin": "'", "end": "'", "patterns": [
+        { "include": "#escape-char" },
+        { "include": "#word"}
+      ]
     }
   ],
   "repository": {
