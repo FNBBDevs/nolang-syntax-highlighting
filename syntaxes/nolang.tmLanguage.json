@@ -73,10 +73,10 @@
     },
     "strings": {
       "patterns": [
-        { "begin": "'", "end": "'", "name": "string.quoted.single" },
-        { "begin": "\"", "end": "\"", "name": "string.quoted.double" },
         { "incude": "#escape-char" },
-        { "include": "#word" }
+        { "include": "#word" },
+        { "begin": "'", "end": "'", "name": "string.quoted.single" },
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double" }
       ]
     },
     "paren-expression": {
