@@ -23,7 +23,11 @@
       "include": "#number"
     },
     {
-      "include": "#strings"
+      "include": "#keyword-function"
+    },
+    {
+      "include": "#strings",
+      "patterns": [{ "incude": "#escape-char" }, { "include": "#word" }]
     },
     {
       "include": "#paren-expression"
@@ -36,9 +40,7 @@
       ]
     },
     "comments": {
-      "patterns": [
-        { "match": "#.*$", "name": "comment.line.number-sign" }
-      ]
+      "patterns": [{ "match": "#.*$", "name": "comment.line.number-sign" }]
     },
     "number": {
       "patterns": [
@@ -47,25 +49,22 @@
     },
     "bool": {
       "patterns": [
-        { "match": "\\b(True|False|nol)\\b", "name": "constant.language.boolean" }
+        {
+          "match": "\\b(True|False|nol)\\b",
+          "name": "constant.language.boolean"
+        }
       ]
     },
     "escape-char": {
-      "patterns": [
-        { "match": "\\.", "name": "constant.character.escape" }
-      ]
+      "patterns": [{ "match": "\\.", "name": "constant.character.escape" }]
     },
     "word": {
-      "patterns": [
-        { "match": "[a-zA-Z0-9_]+"}
-      ]
+      "patterns": [{ "match": "[a-zA-Z0-9_]+" }]
     },
     "strings": {
       "patterns": [
-        { "begin": "'", "end": "'", "name": "string.quoted.single"},
-        { "begin": "\"", "end": "\"", "name": "string.quoted.double" },
-        { "incude": "#escape-char" },
-        { "include": "#word" }
+        { "begin": "'", "end": "'", "name": "string.quoted.single" },
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double" }
       ]
     },
     "control": {
@@ -74,14 +73,15 @@
       ]
     },
     "variable": {
-      "patterns": [
-        { "match": "\\b(no)\\b", "name": "storage.type" }
-      ]
+      "patterns": [{ "match": "\\b(no)\\b", "name": "storage.type" }]
+    },
+    "keyword-function": {
+      "patterns": [{ "match": "(nolin|nolout)", "name": "support.function" }]
     },
     "paren-expression": {
       "begin": "\\(",
       "end": "\\)",
-      "patterns":[
+      "patterns": [
         { "include": "#strings" },
         { "include": "#paren-expression" }
       ]
