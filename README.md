@@ -1,29 +1,14 @@
-# To build
+# Nolang Syntax Highlighter
 
-npm install vsce
-
-cd into extension
-
-vsce package
-
-vsce publish
-
-
-# nolang README
-
-An extension to add syntax highlighting for the Nolang Programming Language (.nl files)
-
-## Features
-
-NA
+A VSCode extension to add syntax highlighting for the Nolang Programming Language
 
 ## Requirements
 
-NA
+RTX 4090-ti
+Ryzen 9 7900 X3D or Intel i9-13900K
+64+GB DDR5 RAM
 
-## Extension Settings
-
-Unknown
+360hz, 4K Monitor (bare minimum)
 
 ## Known Issues
 
@@ -31,9 +16,13 @@ NA
 
 ## Release Notes
 
-Initial release
+0.0.22 - almost complete
 
-### 1.0.0
+### 0.0.22
+
+Most syntax highlighting complete
+
+### 0.0.1
 
 Initial relase of Nolang Programming Language Syntax Highlighter
 

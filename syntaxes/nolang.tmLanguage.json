@@ -11,7 +11,8 @@
       "include": "#comments"
     },
     {
-      "include": "#strings"
+      "include": "#strings",
+      "patterns": [{"include": "#escape"}]
     },
     {
       "include": "#number"
@@ -26,8 +27,7 @@
       "include": "#variable"
     },
     {
-      "include": "#paren-expression",
-      "patterns": [{"include": "#strings"}]
+      "include": "#paren-expression"
     }
   ],
   "repository": {
@@ -38,7 +38,7 @@
     },
     "comments": {
       "patterns": [
-        { "match": "#.*$", "name": "comment.line.number-sign" }
+        { "match": "^#.*$", "name": "comment.line.number-sign" }
       ]
     },
     "number": {
@@ -51,16 +51,22 @@
         { "match": "\\b(True|False|nol)\\b", "name": "constant.language.boolean" }
       ]
     },
-    "escape": {
+    "escape-char": {
       "patterns": [
-        { "match": "(\\'|\\\"|\\n|\\r|\\b|\\v|\\v|\\t)", "name": "constant.character.escape" }
+        { "match": "\\.", "name": "constant.character.escape" }
+      ]
+    },
+    "word": {
+      "patterns": [
+        { "match": "[a-zA-Z0-9_]+"}
       ]
     },
     "strings": {
       "patterns": [
         { "begin": "'", "end": "'", "name": "string.quoted.single"},
         { "begin": "\"", "end": "\"", "name": "string.quoted.double" },
-        { "include": "#escape" }
+        { "incude": "#escape-char" },
+        { "include": "#word" }
       ]
     },
     "control": {
@@ -77,11 +83,10 @@
       "begin": "\\(",
       "end": "\\)",
       "name": "expression.group",
-      "patterns": [
-        {"include": "#strings"},
-        {"include": "#paren-expression"}
+      "patterns":[
+        { "include": "#strings" },
+        { "include": "#paren-expression" }
       ]
     }
   }
 }
-
