@@ -1,3 +1,14 @@
+# To build
+
+npm install vsce
+
+cd into extension
+
+vsce package
+
+vsce publish
+
+
 # nolang README
 
 An extension to add syntax highlighting for the Nolang Programming Language (.nl files)
