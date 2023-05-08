@@ -16,7 +16,11 @@ NA
 
 ## Release Notes
 
-0.0.22 - almost complete, fixed multiparenthesis highlighting
+0.0.24 - fixed variables not showing up and numbers (maybe)
+
+### 0.0.24
+
+Basically . . . . complete
 
 ### 0.0.22
 

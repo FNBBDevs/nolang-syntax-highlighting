@@ -5,26 +5,25 @@
   "name": "Nolang Programming Language",
   "patterns": [
     {
-      "include": "#keywords"
-    },
-    {
       "include": "#comments"
     },
     {
-      "include": "#strings",
-      "patterns": [{"include": "#escape"}]
-    },
-    {
-      "include": "#number"
-    },
-    {
-      "include": "#bool"
+      "include": "#keywords"
     },
     {
       "include": "#control"
     },
     {
       "include": "#variable"
+    },
+    {
+      "include": "#bool"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#number"
     },
     {
       "include": "#paren-expression"
@@ -38,7 +37,7 @@
     },
     "comments": {
       "patterns": [
-        { "match": "^#.*$", "name": "comment.line.number-sign" }
+        { "match": "#.*$", "name": "comment.line.number-sign" }
       ]
     },
     "number": {
@@ -82,7 +81,6 @@
     "paren-expression": {
       "begin": "\\(",
       "end": "\\)",
-      "name": "expression.group",
       "patterns":[
         { "include": "#strings" },
         { "include": "#paren-expression" }
