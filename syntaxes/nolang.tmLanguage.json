@@ -29,7 +29,7 @@
       "include": "#paren-expression"
     },
     {
-      "include": "#string"
+      "include": "#strings"
     }
   ],
   "repository": {
