@@ -20,10 +20,10 @@
       "include": "#bool"
     },
     {
-      "include": "#strings"
+      "include": "#number"
     },
     {
-      "include": "#number"
+      "include": "#strings"
     },
     {
       "include": "#paren-expression"
