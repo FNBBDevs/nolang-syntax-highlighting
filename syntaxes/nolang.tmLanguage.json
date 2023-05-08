@@ -1,0 +1,87 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.nolang",
+  "fileTypes": [".nl"],
+  "name": "Nolang Programming Language",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#number"
+    },
+    {
+      "include": "#bool"
+    },
+    {
+      "include": "#control"
+    },
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#paren-expression",
+      "patterns": [{"include": "#strings"}]
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        { "match": "\\b(if|else|for|while)\\b", "name": "keyword.control" }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        { "match": "#.*$", "name": "comment.line.number-sign" }
+      ]
+    },
+    "number": {
+      "patterns": [
+        { "match": "-?[0-9]+(\\.[0-9]+)?", "name": "constant.numeric" }
+      ]
+    },
+    "bool": {
+      "patterns": [
+        { "match": "\\b(True|False|nol)\\b", "name": "constant.language.boolean" }
+      ]
+    },
+    "escape": {
+      "patterns": [
+        { "match": "(\\'|\\\"|\\n|\\r|\\b|\\v|\\v|\\t)", "name": "constant.character.escape" }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        { "begin": "'", "end": "'", "name": "string.quoted.single"},
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double" },
+        { "include": "#escape" }
+      ]
+    },
+    "control": {
+      "patterns": [
+        { "match": "\\b(and|or|not)\\b", "name": "keyword.operator" }
+      ]
+    },
+    "variable": {
+      "patterns": [
+        { "match": "\\b(no)\\b", "name": "storage.type" }
+      ]
+    },
+    "paren-expression": {
+      "begin": "\\(",
+      "end": "\\)",
+      "name": "expression.group",
+      "patterns": [
+        {"include": "#strings"},
+        {"include": "#paren-expression"}
+      ]
+    }
+  }
+}
+
