@@ -1,9 +1,10 @@
 {
+	"repository": "https://github.com/FNBBDevs/nolang-syntax-highlighting",
 	"name": "nolang",
 	"displayName": "Nolang",
 	"publisher": "FNBBDevs",
 	"description": "Nolang Programming Language",
-	"version": "0.0.1",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.78.0"
 	},

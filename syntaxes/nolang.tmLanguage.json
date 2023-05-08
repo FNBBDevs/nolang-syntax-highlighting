@@ -4,8 +4,51 @@
   "fileTypes": [".nl"],
   "name": "Nolang Programming Language",
   "patterns": [
-    { "match": "#.*$", "name": "comment.line.number-sign" },
-    { "begin": "'", "end": "'", "name": "string.quoted.single" },
-    { "begin": "\"", "end": "\"", "name": "string.quoted.double" }
-  ]
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#number"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        { "match": "^(if|else|for|while)$", "name": "keyword.control.nolang" }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        { "match": "#.*", "name": "comment.line.number-sign.nolang" }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        { "begin": "'", "end": "'", "name": "string.quoted.single.nolang" },
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double.nolang" }
+      ]
+    },
+    "number": {
+      "patterns": [
+        { "match": "^-?[0-9]+(\\.[0-9]+)?$", "name": "number.nolang" }
+      ]
+    },
+    "paren-expression": {
+      "begin": "\\(",
+      "end": "\\)",
+      "beginCaptures": {
+        "0": { "name": "punctuation.paren.open" }
+      },
+      "endCaptures": {
+        "0": { "name": "punctuation.paren.close" }
+      },
+      "name": "expression.group"
+    }
+  }
 }
