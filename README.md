@@ -16,7 +16,7 @@ NA
 
 ## Release Notes
 
-0.0.22 - almost complete
+0.0.22 - almost complete, fixed multiparenthesis highlighting
 
 ### 0.0.22
 
