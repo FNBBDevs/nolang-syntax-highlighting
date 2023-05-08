@@ -26,11 +26,10 @@
       "include": "#keyword-function"
     },
     {
-      "include": "#strings",
-      "patterns": [{ "incude": "#escape-char" }, { "include": "#word" }]
+      "include": "#paren-expression"
     },
     {
-      "include": "#paren-expression"
+      "include": "#strings"
     }
   ],
   "repository": {
@@ -58,15 +57,6 @@
     "escape-char": {
       "patterns": [{ "match": "\\.", "name": "constant.character.escape" }]
     },
-    "word": {
-      "patterns": [{ "match": "[a-zA-Z0-9_]+" }]
-    },
-    "strings": {
-      "patterns": [
-        { "begin": "'", "end": "'", "name": "string.quoted.single" },
-        { "begin": "\"", "end": "\"", "name": "string.quoted.double" }
-      ]
-    },
     "control": {
       "patterns": [
         { "match": "\\b(and|or|not)\\b", "name": "keyword.operator" }
@@ -77,6 +67,17 @@
     },
     "keyword-function": {
       "patterns": [{ "match": "(nolin|nolout)", "name": "support.function" }]
+    },
+    "word": {
+      "patterns": [{ "match": "[a-zA-Z0-9_]+" }]
+    },
+    "strings": {
+      "patterns": [
+        { "begin": "'", "end": "'", "name": "string.quoted.single" },
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double" },
+        { "incude": "#escape-char" },
+        { "include": "#word" }
+      ]
     },
     "paren-expression": {
       "begin": "\\(",
