@@ -1,7 +1,7 @@
 {
 	"repository": "https://github.com/FNBBDevs/nolang-syntax-highlighting",
 	"name": "nolang",
-	"icon": "2.png",
+	"icon": "nl.png",
 	"displayName": "Nolang",
 	"publisher": "FNBBDevs",
 	"description": "Nolang Programming Language",
