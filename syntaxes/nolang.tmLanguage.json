@@ -11,32 +11,65 @@
       "include": "#comments"
     },
     {
-      "include": "#strings"
+      "include": "#strings",
+      "patterns": [{"include": "#escape"}]
     },
     {
       "include": "#number"
+    },
+    {
+      "include": "#bool"
+    },
+    {
+      "include": "#control"
+    },
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#paren-expression"
     }
   ],
   "repository": {
     "keywords": {
       "patterns": [
-        { "match": "^(if|else|for|while)$", "name": "keyword.control.nolang" }
+        { "match": "\\b(if|else|for|while)\\b", "name": "keyword.control" }
       ]
     },
     "comments": {
       "patterns": [
-        { "match": "#.*", "name": "comment.line.number-sign.nolang" }
+        { "match": "^#.*$", "name": "comment.line.number-sign" }
       ]
     },
     "strings": {
       "patterns": [
-        { "begin": "'", "end": "'", "name": "string.quoted.single.nolang" },
-        { "begin": "\"", "end": "\"", "name": "string.quoted.double.nolang" }
+        { "begin": "'", "end": "'", "name": "string.quoted.single", "match": ""},
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double" }
       ]
     },
     "number": {
       "patterns": [
-        { "match": "^-?[0-9]+(\\.[0-9]+)?$", "name": "number.nolang" }
+        { "match": "-?[0-9]+(\\.[0-9]+)?", "name": "constant.numeric" }
+      ]
+    },
+    "bool": {
+      "patterns": [
+        { "match": "\\b(True|False)\\b", "name": "constant.language.boolean" }
+      ]
+    },
+    "escape": {
+      "patterns": [
+        { "match": "(\\'|\\\"|\\n|\\r|\\b|\\v|\\v|\\t)", "name": "constant.character.escape" }
+      ]
+    },
+    "control": {
+      "patterns": [
+        { "match": "\\b(and|or|not)\\b", "name": "keyword.operator" }
+      ]
+    },
+    "variable": {
+      "patterns": [
+        { "match": "\\b(no)\\b", "name": "storage.type" }
       ]
     },
     "paren-expression": {
@@ -48,7 +81,9 @@
       "endCaptures": {
         "0": { "name": "punctuation.paren.close" }
       },
-      "name": "expression.group"
+      "name": "expression.group",
+      "include": "paren-expression"
     }
   }
 }
+
