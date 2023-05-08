@@ -29,16 +29,7 @@
       "include": "#paren-expression"
     },
     {
-      "begin": "\"", "end": "\"", "patterns": [
-        { "include": "#escape-char" },
-        { "include": "#word"}
-      ]
-    },
-    {
-      "begin": "'", "end": "'", "patterns": [
-        { "include": "#escape-char" },
-        { "include": "#word"}
-      ]
+      "include": "#string"
     }
   ],
   "repository": {
@@ -82,10 +73,10 @@
     },
     "strings": {
       "patterns": [
-        { "incude": "#escape-char" },
-        { "include": "#word" },
         { "begin": "'", "end": "'", "name": "string.quoted.single" },
-        { "begin": "\"", "end": "\"", "name": "string.quoted.double" }
+        { "begin": "\"", "end": "\"", "name": "string.quoted.double" },
+        { "incude": "#escape-char", "name": "constant.character.escape" },
+        { "include": "#word" }
       ]
     },
     "paren-expression": {
