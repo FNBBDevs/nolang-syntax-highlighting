@@ -19,8 +19,8 @@ def clean():
         json.dump(package, f)
 
     # Remove the vsix file that was created
-    print(f'CLEAN: removing .vsix file for version {previous}')
-    os.remove(f"nolang-{previous}.vsix")
+    # print(f'CLEAN: removing .vsix file for version {previous}')
+    # os.remove(f"nolang-{previous}.vsix")
 
 if __name__ == "__main__":
     clean()

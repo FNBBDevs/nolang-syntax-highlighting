@@ -22,3 +22,11 @@ CHANGELOG.md
 
 # png
 *.png
+
+# ini
+*.ini
+
+# nl
+*.nl
+
+testing.py

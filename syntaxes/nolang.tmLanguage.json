@@ -5,86 +5,180 @@
   "name": "Nolang Programming Language",
   "patterns": [
     {
-      "include": "#comments"
-    },
-    {
-      "include": "#keywords"
-    },
-    {
-      "include": "#control"
-    },
-    {
-      "include": "#variable"
-    },
-    {
-      "include": "#bool"
-    },
-    {
-      "include": "#number"
-    },
-    {
-      "include": "#keyword-function"
-    },
-    {
-      "include": "#paren-expression"
-    },
-    {
-      "include": "#strings"
+      "include": "#base"
     }
   ],
+
   "repository": {
+    "base": {
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#operation"
+        },
+        {
+          "include": "#control"
+        },
+        {
+          "include": "#variable"
+        },
+        {
+          "include": "#bool"
+        },
+        {
+          "include": "#number"
+        },
+        {
+          "include": "#keyword-function"
+        },
+        {
+          "include": "#paren-expression"
+        },
+        {
+          "include": "#strings"
+        }
+      ]
+    },
+    
     "keywords": {
       "patterns": [
-        { "match": "\\b(if|else|elif|for|while)\\b", "name": "keyword.control" }
+        { 
+          "match": "\\b(if|else|elif|for|while)\\b", 
+          "name": "keyword.control" 
+        }
       ]
     },
-    "comments": {
-      "patterns": [{ "match": "#.*$", "name": "comment.line.number-sign" }]
+
+    "operation": {
+      "patterns": [
+        {
+          "match": "(\\-|\\+|/|\\*)",
+          "name": "keyword.operator"
+        }
+      ]
     },
+
+    "comments": {
+      "patterns": [
+        { 
+          "match": "#.*$", 
+          "name": "comment.line.number-sign" 
+          }
+        ]
+    },
+
     "number": {
       "patterns": [
-        { "match": "-?[0-9]+(\\.[0-9]+)?", "name": "constant.numeric" }
+        { 
+          "match": "\\b-?[0-9]+(\\.[0-9]+)?\\b", 
+          "name": "constant.numeric" 
+        }
       ]
     },
+
     "bool": {
       "patterns": [
         {
           "match": "\\b(True|False|nol)\\b",
-          "name": "constant.language.boolean"
+          "name": "constant.language"
         }
       ]
     },
-    "escape-char": {
-      "patterns": [{ "match": "\\.", "name": "constant.character.escape" }]
-    },
+
     "control": {
       "patterns": [
-        { "match": "\\b(and|or|not)\\b", "name": "keyword.operator" }
+        { 
+          "match": "\\b(and|or|not)\\b", 
+          "name": "keyword.operator" 
+        }
       ]
     },
+
     "variable": {
-      "patterns": [{ "match": "\\b(no)\\b", "name": "storage.type" }]
+      "patterns": [
+        { 
+          "match": "\\b(no)\\b", 
+          "name": "storage.type" 
+          }
+        ]
     },
+
     "keyword-function": {
       "patterns": [{ "match": "(nolin|nolout)", "name": "support.function" }]
     },
-    "word": {
-      "patterns": [{ "match": "[a-zA-Z0-9_]+" }]
-    },
+
     "strings": {
       "patterns": [
-        { "begin": "'", "end": "'", "name": "string.quoted.single" },
-        { "begin": "\"", "end": "\"", "name": "string.quoted.double" },
-        { "incude": "#escape-char", "name": "constant.character.escape" },
-        { "include": "#word" }
+        { 
+          "begin": "'",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin"
+            }
+          },
+          "end": "'",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end"
+            }
+          },
+          "name": "string.quoted.single",
+          "patterns": [
+            {
+              "include": "#escape"
+            }
+          ]
+        },
+        { 
+          "begin": "\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin"
+            }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end"
+            }
+          },
+          "name": "string.quoted.double",
+          "patterns": [
+            {
+              "include": "#escape"
+            }
+          ]
+        }
       ]
     },
+
+    "escape": {
+      "patterns": [
+        { 
+          "match": "(?x)\\\\ (\n\\\\             |\n[abefnprtv'\"?]   |\n[0-3]\\d{,2}     |\n[4-7]\\d?        |\nx[a-fA-F0-9]{,2} |\nu[a-fA-F0-9]{,4} |\nU[a-fA-F0-9]{,8} )", 
+          "name": "constant.character.escape" 
+        }
+      ]
+    },
+
     "paren-expression": {
       "begin": "\\(",
       "end": "\\)",
       "patterns": [
-        { "include": "#strings" },
-        { "include": "#paren-expression" }
+        { 
+          "include": "#strings" 
+        },
+        { 
+          "include": "#paren-expression" 
+        },
+        { 
+          "include": "#base" 
+        }
       ]
     }
   }
