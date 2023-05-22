@@ -28,5 +28,11 @@ CHANGELOG.md
 
 # nl
 *.nl
+*.nolang
+*.Nolang
+*.nolan
+*.Nolan
+*.gregory
+*.Gregory
 
 testing.py
