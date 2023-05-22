@@ -25,7 +25,7 @@
           "include": "#control"
         },
         {
-          "include": "#variable"
+          "include": "#dec"
         },
         {
           "include": "#bool"
@@ -35,6 +35,9 @@
         },
         {
           "include": "#keyword-function"
+        },
+        {
+          "include": "#identifier"
         },
         {
           "include": "#paren-expression"
@@ -48,7 +51,7 @@
     "keywords": {
       "patterns": [
         { 
-          "match": "\\b(if|else|elif|for|while)\\b", 
+          "match": "\\b(if|erm|hermph|for|while|and|or|not|greg)\\b", 
           "name": "keyword.control" 
         }
       ]
@@ -57,7 +60,7 @@
     "operation": {
       "patterns": [
         {
-          "match": "(\\-|\\+|/|\\*)",
+          "match": "(\\-|\\+|/|\\*|=)",
           "name": "keyword.operator"
         }
       ]
@@ -90,16 +93,7 @@
       ]
     },
 
-    "control": {
-      "patterns": [
-        { 
-          "match": "\\b(and|or|not)\\b", 
-          "name": "keyword.operator" 
-        }
-      ]
-    },
-
-    "variable": {
+    "dec": {
       "patterns": [
         { 
           "match": "\\b(no)\\b", 
@@ -109,7 +103,7 @@
     },
 
     "keyword-function": {
-      "patterns": [{ "match": "(nolin|nolout)", "name": "support.function" }]
+      "patterns": [{ "match": "(nolin|nolout|time)", "name": "support.function" }]
     },
 
     "strings": {
@@ -162,6 +156,15 @@
         { 
           "match": "(?x)\\\\ (\n\\\\             |\n[abefnprtv'\"?]   |\n[0-3]\\d{,2}     |\n[4-7]\\d?        |\nx[a-fA-F0-9]{,2} |\nu[a-fA-F0-9]{,4} |\nU[a-fA-F0-9]{,8} )", 
           "name": "constant.character.escape" 
+        }
+      ]
+    },
+
+    "identifier": {
+      "patterns": [
+        {
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b",
+          "name": "variable"
         }
       ]
     },
