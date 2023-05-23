@@ -51,7 +51,7 @@
     "keywords": {
       "patterns": [
         { 
-          "match": "\\b(if|erm|hermph|for|while|and|or|not|greg)\\b", 
+          "match": "\\b(if|erm|hermph|for|while|and|or|not|greg|pay|bounce)\\b", 
           "name": "keyword.control" 
         }
       ]
@@ -103,7 +103,7 @@
     },
 
     "keyword-function": {
-      "patterns": [{ "match": "(nolin|nolout|time)", "name": "support.function" }]
+      "patterns": [{ "match": "(nolin|nolout|time|random|int|float|rounddown|roundup)", "name": "support.function" }]
     },
 
     "strings": {
