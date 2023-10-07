@@ -103,7 +103,7 @@
     },
 
     "keyword-function": {
-      "patterns": [{ "match": "(nolin|nolout|time|random|int|float|rounddown|roundup)", "name": "support.function" }]
+      "patterns": [{ "match": "\\b(nolin|nolout|time|random|int|float|rounddown|roundup|coloredout|colored)\\b", "name": "support.function" }]
     },
 
     "strings": {
